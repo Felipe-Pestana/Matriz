@@ -1,4 +1,4 @@
-﻿int qtdlinhas = 3, qtdcolunas = 4;
+﻿int qtdlinhas = 3, qtdcolunas = 3;
 
 float[,] matriz1 = new float[qtdlinhas,qtdcolunas];
 
@@ -23,105 +23,51 @@ for (int linha = 0; linha < qtdlinhas; linha++)
         Console.Write(matriz1[linha, coluna] + " ");
     }
 }
+Console.ReadLine();
 
-//criacao da matriz 2
-
-for (int linha = 0; linha < qtdlinhas; linha++)
+for (int linha = 0;linha < qtdlinhas; linha++) 
 {
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
+    Console.WriteLine();
+    float resultado = 0;
+    for (int coluna = 0;coluna < qtdcolunas; coluna++)
     {
-        matriz2[linha, coluna] = new Random().Next(0, 10);
+        if(linha < qtdlinhas)
+        {
+            resultado += matriz1[linha, coluna];
+            if (qtdcolunas - 1 == coluna)
+            {
+                Console.WriteLine(resultado);
+            }
+        }
     }
 }
+
 
 Console.ReadLine();
 
-for (int linha = 0; linha < qtdlinhas; linha++)
+for(int linha = 0; linha < qtdlinhas; linha++)
 {
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
+    float resultado = 0;
+    for(int coluna = 0; coluna < qtdcolunas; coluna++)
     {
-        Console.Write(matriz2[linha,coluna]+" ");
+        resultado += matriz1[coluna,linha];
     }
+
+    Console.WriteLine(resultado);
 }
 
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        matriz3[linha, coluna] = matriz1[linha, coluna] + matriz2[linha, coluna];
-    }
-}
-
-Console.ReadLine();
-Console.WriteLine("Matriz somada");
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
-
-for(int linha = 0;linha < qtdlinhas; linha++)
-{
-    for(int coluna = 0;coluna < qtdcolunas; coluna++)
-    {
-        matriz3[linha,coluna] = matriz1[linha,coluna] - matriz2[linha,coluna];
-    }
-}
-
-Console.ReadLine();
-Console.WriteLine("Matriz Subtraida");
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
-
-Console.ReadLine();
-Console.WriteLine("Matriz Multiplicada");
+float diag = 0;
 
 for (int linha = 0; linha < qtdlinhas; linha++)
 {
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        matriz3[linha, coluna] = matriz1[linha, coluna] * matriz2[linha, coluna];
-    }
+    diag += matriz1[linha, linha];    
 }
-
-for (int linha = 0; linha < qtdlinhas; linha++)
+Console.WriteLine(diag);
+diag = 0;
+int auxLinha = 0;
+for (int coluna = qtdcolunas-1; coluna >= 0; coluna--)
 {
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
+    diag += matriz1[auxLinha, coluna];
+    auxLinha++;
 }
-
-Console.ReadLine();
-Console.WriteLine("Matriz Dividida");
-
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        if (matriz2[linha, coluna] != 0)
-            matriz3[linha, coluna] = matriz1[linha, coluna] / matriz2[linha, coluna];
-        else
-            matriz3[linha, coluna] = float.NaN;
-    }
-}
-
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
+Console.WriteLine(diag);
