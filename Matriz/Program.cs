@@ -1,9 +1,22 @@
 ﻿int qtdlinhas = 3, qtdcolunas = 4;
 
 float[,] matriz1 = new float[qtdlinhas,qtdcolunas];
-
 float[,] matriz2 = new float[qtdlinhas, qtdcolunas];
 float[,] matriz3 = new float[qtdlinhas, qtdcolunas];
+
+void ImprimirMatriz(float[,] matriz, string titulo)
+{
+    Console.WriteLine(titulo);
+    for (int linha = 0; linha < qtdlinhas; linha++)
+    {
+        Console.WriteLine();
+        for (int coluna = 0; coluna < qtdcolunas; coluna++)
+        {
+            Console.Write(matriz[linha, coluna] + " ");
+        }
+    }
+}
+
 
 //criacao da matriz 1
 
@@ -15,14 +28,7 @@ for (int linha = 0; linha < qtdlinhas; linha++)
     }
 }
 
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz1[linha, coluna] + " ");
-    }
-}
+ImprimirMatriz(matriz1, "Matriz 1");
 
 //criacao da matriz 2
 
@@ -36,14 +42,7 @@ for (int linha = 0; linha < qtdlinhas; linha++)
 
 Console.ReadLine();
 
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz2[linha,coluna]+" ");
-    }
-}
+ImprimirMatriz(matriz2, "Matriz 2");
 
 for (int linha = 0; linha < qtdlinhas; linha++)
 {
@@ -54,15 +53,8 @@ for (int linha = 0; linha < qtdlinhas; linha++)
 }
 
 Console.ReadLine();
-Console.WriteLine("Matriz somada");
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
+ImprimirMatriz(matriz3, "Matriz Somada");
+
 
 for(int linha = 0;linha < qtdlinhas; linha++)
 {
@@ -73,18 +65,10 @@ for(int linha = 0;linha < qtdlinhas; linha++)
 }
 
 Console.ReadLine();
-Console.WriteLine("Matriz Subtraida");
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
+
+ImprimirMatriz(matriz3, "Matriz Subtraida");
 
 Console.ReadLine();
-Console.WriteLine("Matriz Multiplicada");
 
 for (int linha = 0; linha < qtdlinhas; linha++)
 {
@@ -94,17 +78,10 @@ for (int linha = 0; linha < qtdlinhas; linha++)
     }
 }
 
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
+ImprimirMatriz(matriz3, "Matriz Multiplicada");
 
 Console.ReadLine();
-Console.WriteLine("Matriz Dividida");
+
 
 for (int linha = 0; linha < qtdlinhas; linha++)
 {
@@ -117,11 +94,4 @@ for (int linha = 0; linha < qtdlinhas; linha++)
     }
 }
 
-for (int linha = 0; linha < qtdlinhas; linha++)
-{
-    Console.WriteLine();
-    for (int coluna = 0; coluna < qtdcolunas; coluna++)
-    {
-        Console.Write(matriz3[linha, coluna] + " ");
-    }
-}
+ImprimirMatriz(matriz3, "Matriz Dividida");
