@@ -44,6 +44,8 @@ Console.ReadLine();
 
 ImprimirMatriz(matriz2, "Matriz 2");
 
+//operações
+
 for (int linha = 0; linha < qtdlinhas; linha++)
 {
     for (int coluna = 0; coluna < qtdcolunas; coluna++)
